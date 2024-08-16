@@ -22,7 +22,7 @@ namespace EventManagement
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(
-                option => option.UseSqlServer(builder.Configuration.GetConnectionString("CS")
+                option => option.UseSqlServer(builder.Configuration.GetConnectionString("DEV")
                 ));
             RepositoryDependancyInjection.AddRepositories(builder.Services);
 
