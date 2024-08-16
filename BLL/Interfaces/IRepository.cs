@@ -11,7 +11,7 @@ namespace BLL.Interfaces
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        void Update(int id);
+        void Update(T UpdatedEntity);
         void Delete(int id);
         void Add(T entity);
 

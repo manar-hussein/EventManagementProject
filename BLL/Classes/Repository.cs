@@ -40,10 +40,9 @@ namespace BLL.Classes
             return set.ToList();
         }
 
-        public void Update(int id)
+        public void Update(T UpdatedEntity)
         {
-            T entity = Get(id);
-            set.Update(entity);
+            set.Update(UpdatedEntity);
         }
     }
 }
