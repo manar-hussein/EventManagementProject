@@ -1,0 +1,10 @@
+﻿global using DAL.Models;
+global using EventManagementSystem.View_Models;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using System.Diagnostics;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using System.Security.Claims;
+global using DAL.Data;
+global using Microsoft.EntityFrameworkCore;

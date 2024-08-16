@@ -1,0 +1,31 @@
+﻿@using DAL.Models
+@model IEnumerable<Event>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@foreach(var item in Model)
+{
+    <div>
+        <h4>Event</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Id : @item.Id
+            </dt>
+            <dt class="col-sm-2">
+                Name : @item.Name
+            </dt>
+            <dt class="col-sm-2">
+                No Of Tickets : @item.NoOfTickets
+            </dt>
+        </dl>
+    </div>
+}
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
