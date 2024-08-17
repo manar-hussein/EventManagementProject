@@ -1,6 +1,7 @@
-﻿namespace EventManagementSystem.Controllers
+﻿namespace EventManagement.Areas.Services.Controllers
 {
-    [Authorize(Roles = ("Admin"))]
+    [Authorize(Roles = "Admin")]
+    [Area("Services")]
     public class RoleController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -18,7 +19,7 @@
         [HttpGet]
         public IActionResult Create()
         {
-         
+
             return View();
         }
 
@@ -29,9 +30,10 @@
             if (ModelState.IsValid)
             {
                 IdentityRole checkrole = await _roleManager.FindByNameAsync(roleVm.Name);
-                if (checkrole is null) { 
+                if (checkrole is null)
+                {
 
-                    IdentityRole MappingRole= new IdentityRole();
+                    IdentityRole MappingRole = new IdentityRole();
                     MappingRole.Name = roleVm.Name;
 
                     await _roleManager.CreateAsync(MappingRole);
@@ -58,16 +60,16 @@
             {
                 assignRoleVm.Users.Add(new SelectListItem
                 {
-                    Value= user.Id,
-                    Text=user.UserName
+                    Value = user.Id,
+                    Text = user.UserName
                 });
             }
             foreach (var role in roles)
             {
                 assignRoleVm.Roles.Add(new SelectListItem
                 {
-                        Value= role.Id,
-                        Text=role.Name
+                    Value = role.Id,
+                    Text = role.Name
                 });
             }
 
@@ -81,11 +83,11 @@
             if (ModelState.IsValid)
             {
                 ApplicationUser user = await _userManager.FindByIdAsync(assignRole.UserId);
-                IdentityRole role= await _roleManager.FindByIdAsync(assignRole.RoleId);
+                IdentityRole role = await _roleManager.FindByIdAsync(assignRole.RoleId);
                 if (user is not null && role is not null)
                 {
                     await _userManager.AddToRoleAsync(user, role.Name);
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Assign");
             }

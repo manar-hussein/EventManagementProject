@@ -1,21 +1,20 @@
 using BLL.Classes;
 using BLL.Interfaces;
 using DAL.Models;
-
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace EventManagement.Controllers
+namespace EventManagement.Areas.Events.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-       
+
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        
+
         }
 
         public IActionResult Index()

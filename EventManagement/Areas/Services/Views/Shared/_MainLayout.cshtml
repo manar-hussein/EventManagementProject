@@ -54,12 +54,12 @@
           <li class="menu-active"><a asp-action="Index" asp-controller="Home" asp-fragment="main" >Home</a></li>
                     <li><a asp-action="Index" asp-controller="Home" asp-fragment="main">About</a></li>
                     <li><a asp-action="Privacy" asp-controller="Home" asp-fragment="main">Privacy</a></li>
-                    <li><a asp-action="Index" asp-controller="Event" asp-fragment="main" asp-area="Events">Events</a></li>
+                    <li><a asp-action="Index" asp-controller="Event" asp-fragment="main">Events</a></li>
         
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#sponsors">Contact Us</a></li>
-                    <li><a asp-action="Login" asp-controller="Account" asp-area="Events">Sign In</a></li>
-                    <li><a asp-action="Register" asp-controller="Account" asp-area="Events">Register</a></li>
+                    <li><a asp-action="Login" asp-controller="Account">Sign In</a></li>
+                    <li><a asp-action="Register" asp-controller="Account">Register</a></li>
           <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -79,9 +79,9 @@
     </div>
   </section> *@
 
-    <main id="main" class="py-5">
-        <div class="container py-5">
-            @RenderBody()
+    <main id="main" class="py-5 my-5">
+        <div class="container py-5 ">
+            @RenderBody();
       </div>
       
   </main>
@@ -180,7 +180,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-    @RenderSection("Scripts", false)
 </body>
 
 </html>

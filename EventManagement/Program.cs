@@ -43,6 +43,16 @@ namespace EventManagement
 
             app.UseAuthorization();
 
+            app.MapAreaControllerRoute(
+                name: "MyAreaEvents",
+                areaName: "Events",
+                pattern: "Events/{controller=Event}/{action=Index}/{id?}");
+
+            app.MapAreaControllerRoute(
+            name: "MyAreaServices",
+            areaName: "Services",
+            pattern: "Services/{controller=Role}/{action=Create}/{id?}");
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

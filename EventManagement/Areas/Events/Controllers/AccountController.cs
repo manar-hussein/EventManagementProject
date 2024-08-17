@@ -1,12 +1,12 @@
-﻿namespace EventManagementSystem.Controllers
+﻿namespace EventManagement.Areas.Events.Controllers
 {
+    [Area("Events")]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        public AccountController(
-                                    UserManager<ApplicationUser> userManager,
-                                    SignInManager<ApplicationUser> signInManager
+        public AccountController(UserManager<ApplicationUser> userManager,
+                                  SignInManager<ApplicationUser> signInManager
                                 )
         {
             _userManager = userManager;
@@ -41,10 +41,10 @@
                     return RedirectToAction("Index", "Home");
                 }
 
-                    foreach (var Error in user.Errors)
-                    {
-                        ModelState.AddModelError(Error.Code, Error.Description);
-                    }
+                foreach (var Error in user.Errors)
+                {
+                    ModelState.AddModelError(Error.Code, Error.Description);
+                }
 
             }
             return View(registerUser);
@@ -60,10 +60,12 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginUser loginUser)
         {
-            if (ModelState.IsValid) { 
+            if (ModelState.IsValid)
+            {
                 ApplicationUser user = await _userManager.FindByNameAsync(loginUser.UserName);
-                var checkUser = await _signInManager.PasswordSignInAsync(user, loginUser.Password, loginUser.RememberMe,false);
-                if (checkUser.Succeeded) {
+                var checkUser = await _signInManager.PasswordSignInAsync(user, loginUser.Password, loginUser.RememberMe, false);
+                if (checkUser.Succeeded)
+                {
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login ");

@@ -2,8 +2,9 @@
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EventManagement.Controllers
+namespace EventManagement.Areas.Events.Controllers
 {
+    [Area("Events")]
     public class EventController : Controller
     {
         private readonly IUniteOfWork uniteOfWork;
