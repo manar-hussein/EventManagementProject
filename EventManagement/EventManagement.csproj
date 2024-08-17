@@ -23,15 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Services\ViewModels\" />
+    <Folder Include="Areas\Admin\ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Areas\Events\Views\Account\Login.cshtml">
+    <Content Update="Areas\System\Views\Account\Login.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Events\Views\Account\Register.cshtml">
+    <Content Update="Areas\System\Views\Account\Register.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

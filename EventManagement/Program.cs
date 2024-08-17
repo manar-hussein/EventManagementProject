@@ -45,13 +45,13 @@ namespace EventManagement
 
             app.MapAreaControllerRoute(
                 name: "MyAreaEvents",
-                areaName: "Events",
-                pattern: "Events/{controller=Event}/{action=Index}/{id?}");
+                areaName: "System",
+                pattern: "System/{controller=Event}/{action=Index}/{id?}");
 
             app.MapAreaControllerRoute(
             name: "MyAreaServices",
-            areaName: "Services",
-            pattern: "Services/{controller=Role}/{action=Create}/{id?}");
+            areaName: "Admin",
+            pattern: "Admin/{controller=Role}/{action=Create}/{id?}");
 
             app.MapControllerRoute(
                 name: "default",
